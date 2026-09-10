@@ -1,1 +1,446 @@
-/* Add you CSS here */
+/* Give the page a clean starting point. */
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background-color: #f6f3ed;
+	color: #202b35;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+	--stroke-weight: 6px;
+}
+
+/* The header uses flexbox to place the logo in the center. */
+.site-header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 48px;
+	min-height: 100px;
+	padding: 18px 32px;
+	border-bottom: 1px solid #d8d1c5;
+	background-color: #222222;
+}
+
+.navigation {
+	display: flex;
+	flex: 1 1 0;
+	gap: 28px;
+	min-width: 0;
+}
+
+.navigation-left {
+	justify-content: flex-end;
+}
+
+.navigation-right {
+	justify-content: flex-start;
+}
+
+.navigation a {
+	color: #d3d3d3;
+	font-size: 15px;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.navigation a:hover,
+.navigation a:focus {
+	color: #3d8fe6;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	color: #ffffff;
+	font-family: "Rockwell Nova", Rockwell, "Roboto Slab", Georgia, serif;
+	font-size: 30px;
+	font-weight: 300;
+	text-decoration: none;
+}
+
+/* Show the hero image in grayscale. */
+.hero {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: calc(100vh - 134px);
+	overflow: hidden;
+	background-color: #202b35;
+}
+
+.hero::before {
+	position: absolute;
+	inset: 0;
+	background-image: url("img/hero image.jpg");
+	background-position: center;
+	background-size: cover;
+	content: "";
+	filter: grayscale(100%);
+	opacity: 0.9;
+}
+
+.hero::after {
+	position: absolute;
+	inset: 0;
+	background-color: #3d8fe6;
+	content: "";
+	opacity: 0.3;
+}
+
+.hero-dark-overlay {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	background-color: #000000;
+	opacity: 0.1;
+	pointer-events: none;
+}
+
+.hero-layout {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 36px;
+	width: min(92%, 1000px);
+	z-index: 2;
+}
+
+.hero-hexagon {
+	position: relative;
+	top: auto;
+	left: auto;
+	flex: 0 0 52%;
+	width: auto;
+	aspect-ratio: 1.1547 / 1;
+	z-index: auto;
+	background-color: #3d8fe6;
+	clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+	transform: none;
+	pointer-events: none;
+}
+
+.hero-hexagon img {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	bottom: 8px;
+	left: 8px;
+	display: block;
+	width: calc(100% - 16px);
+	height: calc(100% - 16px);
+	clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+	object-fit: cover;
+}
+
+.hero-hexagon::after {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	border: var(--stroke-weight) solid #3d8fe6;
+	clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+	content: "";
+}
+
+.hero-bio {
+	position: relative;
+	flex: 1 1 0;
+	width: auto;
+	padding: 24px;
+	border-left: var(--stroke-weight) solid #3d8fe6;
+	background-color: rgba(32, 43, 53, 0.78);
+	color: #ffffff;
+}
+
+.hero-bio h1 {
+	margin: 0 0 16px;
+	font-family: "Rockwell Nova", Rockwell, "Roboto Slab", Georgia, serif;
+	font-size: 30px;
+	font-weight: 300;
+}
+
+.hero-bio p {
+	margin: 0 0 12px;
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+.hero-bio p:last-child {
+	margin-bottom: 0;
+}
+
+.project-sections {
+	display: flex;
+	gap: 24px;
+	padding: 48px 32px;
+	background-color: #f6f3ed;
+}
+
+.project-card {
+	flex: 1 1 0;
+	min-height: 220px;
+	padding: 28px;
+	border-bottom: var(--stroke-weight) solid #3d8fe6;
+	background-color: #222222;
+	color: #ffffff;
+}
+
+.project-card-heading {
+	display: flex;
+	align-items: center;
+	gap: 18px;
+}
+
+.project-icon {
+	display: block;
+	flex-shrink: 0;
+	width: 63px;
+	height: 63px;
+	fill: none;
+	stroke: #3d8fe6;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 1.8;
+}
+
+.project-card h2 {
+	margin: 0;
+	font-family: "Rockwell Nova", Rockwell, "Roboto Slab", Georgia, serif;
+	font-size: 22px;
+	font-weight: 300;
+}
+
+.project-card p {
+	margin: 0;
+	padding-top: 16px;
+	color: #d3d3d3;
+	font-size: 15px;
+	line-height: 1.5;
+}
+
+.hexagon-band {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0;
+	min-height: 360px;
+	overflow: hidden;
+	padding: 64px 32px;
+	background-color: #222222;
+}
+
+.hexagon-band-item {
+	position: relative;
+	flex: 0 0 294px;
+	max-width: none;
+	margin-left: -21px;
+	aspect-ratio: 1.1547 / 1;
+	background-color: #3d8fe6;
+	clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+}
+
+.hexagon-band-item::after {
+	position: absolute;
+	inset: var(--stroke-weight);
+	background-color: #ffffff;
+	clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+	content: "";
+}
+
+.hexagon-band-item.has-image::after {
+	display: block;
+}
+
+.hexagon-band-item img {
+	position: absolute;
+	inset: var(--stroke-weight);
+	z-index: 1;
+	width: calc(100% - (var(--stroke-weight) * 2));
+	height: calc(100% - (var(--stroke-weight) * 2));
+	clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+	opacity: 0.9;
+	object-fit: cover;
+}
+
+.hexagon-band-item::before {
+	position: absolute;
+	inset: var(--stroke-weight);
+	z-index: 2;
+	background-color: #000000;
+	clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+	content: "";
+	opacity: 0.2;
+}
+
+.hexagon-band-item:first-child {
+	margin-left: 0;
+}
+
+.hexagon-band-item:nth-child(odd) {
+	transform: translateY(-36px);
+}
+
+.hexagon-band-item:nth-child(even) {
+	transform: translateY(36px);
+}
+
+.skills-section {
+	padding: 80px 40px;
+	background-color: #f6f3ed;
+	color: #202b35;
+	text-align: center;
+}
+
+.skills-section h2 {
+	margin: 0 0 12px;
+	font-family: "Rockwell Nova", Rockwell, "Roboto Slab", Georgia, serif;
+	font-size: 40px;
+	font-weight: 300;
+}
+
+.skills-subheading {
+	margin: 0 0 40px;
+	font-size: 20px;
+}
+
+.skills-list {
+	display: flex;
+	justify-content: center;
+	gap: 36px;
+	flex-wrap: wrap;
+}
+
+.skill-item {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	gap: 16px;
+	min-width: 138px;
+	color: #222222;
+	font-size: 19px;
+	font-weight: 600;
+}
+
+.skill-icon {
+	width: 60px;
+	height: 60px;
+	fill: none;
+	stroke: #3d8fe6;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 1.8;
+}
+
+.site-footer {
+	padding: 48px 32px;
+	border-top: var(--stroke-weight) solid #3d8fe6;
+	background-color: #222222;
+	color: #ffffff;
+	text-align: center;
+}
+
+.site-footer h2 {
+	margin: 0 0 10px;
+	font-family: "Rockwell Nova", Rockwell, "Roboto Slab", Georgia, serif;
+	font-size: 30px;
+	font-weight: 300;
+}
+
+.site-footer p {
+	margin: 0 0 24px;
+	color: #d3d3d3;
+	font-size: 16px;
+}
+
+.contact-links {
+	display: flex;
+	justify-content: center;
+	gap: 28px;
+	flex-wrap: wrap;
+}
+
+.contact-links a {
+	color: #ffffff;
+	font-size: 16px;
+	text-decoration: none;
+}
+
+.contact-links a:hover,
+.contact-links a:focus {
+	color: #3d8fe6;
+}
+
+/* Stack the links around the logo on smaller screens. */
+@media (max-width: 700px) {
+	.site-header {
+		flex-wrap: wrap;
+		gap: 20px;
+	}
+
+	.logo {
+		order: -1;
+	}
+
+	.navigation {
+		flex: 0 0 100%;
+		min-width: 0;
+		width: 100%;
+		justify-content: center;
+		gap: 22px;
+	}
+
+	.hero-layout {
+		flex-direction: column;
+		gap: 20px;
+		width: 84%;
+	}
+
+	.project-sections {
+		flex-direction: column;
+		gap: 16px;
+		padding: 32px 20px;
+	}
+
+	.hexagon-band {
+		flex-wrap: wrap;
+		gap: 0;
+		overflow: visible;
+		padding: 48px 20px;
+	}
+
+	.hexagon-band-item {
+		flex: 0 0 247px;
+		margin-left: 0;
+	}
+
+	.skills-section {
+		padding: 60px 20px;
+	}
+
+	.skills-list {
+		gap: 30px 16px;
+	}
+
+	.site-footer {
+		padding: 40px 20px;
+	}
+
+	.hero-hexagon {
+		flex-basis: auto;
+		width: 70%;
+	}
+
+	.hero-bio {
+		flex-basis: auto;
+		width: 100%;
+	}
+}
